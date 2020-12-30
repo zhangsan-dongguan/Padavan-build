@@ -32,7 +32,7 @@ jobs:
         pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget
     - name: Clone source code
       run: |
-        git clone --depth=1 https://github.com/chongshengB/rt-n56u.git /opt/rt-n56u
+        git clone --depth=1 https://github.com/zhangsan-dongguan/rt-n56u /opt/rt-n56u
         cd /opt/rt-n56u/toolchain-mipsel
         sh dl_toolchain.sh
         mkdir -p /opt/images/
@@ -60,6 +60,8 @@ jobs:
         sed -i '/CONFIG_FIRMWARE_INCLUDE_FRPS/d' .config #删除配置项adbyby plus+
         sed -i '/CONFIG_FIRMWARE_INCLUDE_TUNSAFE/d' .config #删除配置项adbyby plus+
         sed -i '/CONFIG_FIRMWARE_INCLUDE_ALIDDNS/d' .config #删除配置项阿里DDNS
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_V2RAY/d' .config #删除配置项v2ray
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_TROJAN/d' .config #删除配置项trojan
         sed -i '/CONFIG_FIRMWARE_INCLUDE_SMARTDNS/d' .config
         sed -i '/CONFIG_FIRMWARE_INCLUDE_SRELAY/d' .config
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=y/g' .config
